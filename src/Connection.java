@@ -1,4 +1,3 @@
-
 public class Connection {
     public Node nodeA;
     public Node nodeB;

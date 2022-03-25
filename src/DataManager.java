@@ -19,7 +19,6 @@ public class DataManager {
         return instance;
     }
 
-
     public void loadFile()
     {
 
