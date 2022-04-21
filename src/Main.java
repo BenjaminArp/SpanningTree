@@ -1,3 +1,11 @@
+/*
+Spanning Tree Projekt
+erstellt von: Benjamin Arp 8961416
+fertiggestelt am: 21.04.2022
+Beschreibung: Simulation der Erstellung Spanning Trees
+ */
+
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,6 +18,8 @@ public class Main {
 
         boolean continueLoop = true;
 
+        //get the user Input from program argument
+
         int exitCriteria;
         try {
             exitCriteria = Integer.parseInt(args[0]);
@@ -17,6 +27,7 @@ public class Main {
             exitCriteria = 10;
         }
 
+        //calculate the Spanning Tree
 
         while (continueLoop){
             Random rand = new Random();
@@ -24,6 +35,8 @@ public class Main {
             sendingNode.sendMessages();
             continueLoop = checkContinuing(nodeList,exitCriteria);
         }
+
+        //Print out result to terminal
 
         var root = getRoot(nodeList);
         System.out.println("Root: " + root.name);
@@ -34,8 +47,10 @@ public class Main {
             }
             System.out.println(i.name + " -> " + i.designatedNode.name + " (" + i.costToRoot + ")");
         }
-
     }
+
+
+
     public static Node getRoot(ArrayList<Node> nodeList){
         for(Node i: nodeList){
             if(i.name.equals(i.rootNode.name)){
