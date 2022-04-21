@@ -10,7 +10,13 @@ public class Main {
 
         boolean continueLoop = true;
 
-        int exitCriteria = 10;
+        int exitCriteria;
+        try {
+            exitCriteria = Integer.parseInt(args[0]);
+        }catch (Exception e){
+            exitCriteria = 10;
+        }
+
 
         while (continueLoop){
             Random rand = new Random();
@@ -21,7 +27,7 @@ public class Main {
 
         var root = getRoot(nodeList);
         System.out.println("Root: " + root.name);
-        
+
         for (Node i: nodeList) {
             if (i.name.equals(i.rootNode.name)){
                 continue;
