@@ -1,11 +1,11 @@
-New_Entity
+//Node-IDs
 A,5
 B,1
 C,3
 D,7
 E,6
 F,4
-New_Entity
+//Connections
 A,B,10
 A,C,10
 B,D,15

@@ -36,12 +36,19 @@ public class DataManager {
             //reads all lines until end of file
             while((line=reader.readLine()) != null)
             {
-
-                //if line is start of new Element skip line and change function call
-                if(line.startsWith("New_Entity"))
-                {
-                    counter++;
+                //Check if the following declaration are Nodes or Connections
+                if(line.contains("//Node-IDs")){
+                    counter = 1;
                     continue;
+                }
+                else if(line.contains("//Connections")){
+                    counter = 2;
+                    continue;
+                }
+
+                //skip lines with comments
+                else if(line.contains("//")){
+                continue;
                 }
 
                 String[] variables = line.split("[,]");
@@ -69,6 +76,13 @@ public class DataManager {
     private void addConnection(String[] var){
         Node nodeA = null;
         Node nodeB = null;
+
+        //if costs equals 0 the connection does not exists
+        if (Integer.parseInt(var[2]) == 0){
+            return;
+        }
+
+        //get both partners of the connection
         for (Node o: nodeList) {
             if(o.name.equals(var[0])){
                 nodeA = o;
@@ -77,6 +91,12 @@ public class DataManager {
                 nodeB = o;
             }
         }
+        //if one node is null it is a wrong connection
+        if(nodeB == null || nodeA == null){
+            return;
+        }
+
+        //add Connection
         try {
             new Connection(nodeA,nodeB, Integer.parseInt(var[2]));
         } catch (NumberFormatException e) {
