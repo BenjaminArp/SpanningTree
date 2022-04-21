@@ -21,6 +21,7 @@ public class Node {
     public void addConnection(Connection con){
         connectionList.add(con);
     }
+
     public void sendMessages(){
         for (Connection i: connectionList) {
             i.getPartner(this).processMessage(this.rootNode, this.costToRoot, i.costs, this);
