@@ -41,6 +41,8 @@ public class Main {
         var root = getRoot(nodeList);
         System.out.println("Root: " + root.name);
 
+
+
         for (Node i: nodeList) {
             if (i.name.equals(i.rootNode.name)){
                 continue;

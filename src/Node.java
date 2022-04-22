@@ -15,7 +15,7 @@ public class Node {
     }
     public Node(String[] var) {
         this.id = Integer.parseInt(var[1].replace("\"","").trim());
-        this.name = var[0];
+        this.name = var[0].trim();
     }
 
     public void addConnection(Connection con){

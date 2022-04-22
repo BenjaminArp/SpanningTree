@@ -84,10 +84,10 @@ public class DataManager {
 
         //get both partners of the connection
         for (Node o: nodeList) {
-            if(o.name.equals(var[0])){
+            if(o.name.equals(var[0].trim())){
                 nodeA = o;
             }
-            else if(o.name.equals(var[1])){
+            else if(o.name.equals(var[1].trim())){
                 nodeB = o;
             }
         }
